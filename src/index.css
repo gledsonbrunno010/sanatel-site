@@ -1,0 +1,125 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+    background-color: #101010;
+    color: #FFFFFF;
+    font-family: 'Poppins', sans-serif;
+    -webkit-text-size-adjust: 100%;
+    overflow-x: hidden;
+    overflow-x: clip;
+  }
+
+  body {
+    background-color: #101010;
+    color: #FFFFFF;
+    overflow-x: hidden;
+    overflow-x: clip;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* Optimize touch responsiveness and remove mobile tap delay */
+  a, button, input, select, textarea {
+    touch-action: manipulation;
+  }
+
+  ::selection {
+    background-color: #E3262E;
+    color: #FFFFFF;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #101010;
+}
+::-webkit-scrollbar-thumb {
+  background: #2E2E2E;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #E3262E;
+}
+
+/* Architectural Grid Background with Crisp Technical Visibility */
+.bg-arch-grid {
+  background-size: 48px 48px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+}
+
+.bg-arch-grid-red {
+  background-size: 48px 48px;
+  background-image: 
+    linear-gradient(to right, rgba(227, 38, 46, 0.12) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(227, 38, 46, 0.12) 1px, transparent 1px);
+}
+
+.bg-arch-dots {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.15) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* Atmospheric Ambient Lighting Gradients (Rich 2-Color Depth, High-End Clarity) */
+.bg-radial-crimson {
+  background-image: radial-gradient(circle at 50% 0%, rgba(227, 38, 46, 0.32) 0%, rgba(22, 10, 12, 0) 70%);
+}
+
+.bg-radial-crimson-center {
+  background-image: radial-gradient(circle at 50% 50%, rgba(227, 38, 46, 0.26) 0%, rgba(22, 10, 12, 0) 75%);
+}
+
+.bg-radial-crimson-bottom {
+  background-image: radial-gradient(circle at 50% 100%, rgba(227, 38, 46, 0.28) 0%, rgba(22, 10, 12, 0) 70%);
+}
+
+.bg-light-blueprint {
+  background-size: 36px 36px;
+  background-image: 
+    linear-gradient(to right, rgba(227, 38, 46, 0.07) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(227, 38, 46, 0.07) 1px, transparent 1px);
+}
+
+/* Glassmorphism Surface */
+.glass-panel {
+  background: rgba(22, 22, 22, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-panel-elevated {
+  background: rgba(30, 30, 30, 0.9);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(227, 38, 46, 0.2);
+}
+
+/* Technical Label / Blueprint Accents */
+.tech-label {
+  font-family: 'Space Grotesk', monospace;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+/* Text stroke for oversized editorial typography */
+.text-stroke-red {
+  -webkit-text-stroke: 1px rgba(227, 38, 46, 0.4);
+  color: transparent;
+}
+.text-stroke-white {
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.2);
+  color: transparent;
+}
+

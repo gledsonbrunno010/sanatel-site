@@ -1,0 +1,233 @@
+.circular-carousel {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: pan-y;
+  outline: none;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  contain: layout paint;
+}
+
+.circular-carousel[data-draggable] {
+  cursor: grab;
+}
+
+.circular-carousel[data-dragging] {
+  cursor: grabbing;
+}
+
+.circular-carousel__view {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.circular-carousel__stage {
+  position: absolute;
+  width: 0;
+  height: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform-style: preserve-3d;
+  pointer-events: none;
+  will-change: transform;
+}
+
+.circular-carousel__camera {
+  position: absolute;
+  width: 0;
+  height: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform-style: preserve-3d;
+  pointer-events: none;
+  will-change: transform;
+}
+
+.circular-carousel__ring {
+  position: absolute;
+  width: 0;
+  height: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform-style: preserve-3d;
+  pointer-events: auto;
+  will-change: transform;
+}
+
+.circular-carousel__card {
+  position: absolute;
+  width: 0;
+  height: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  cursor: grab;
+  pointer-events: auto;
+  will-change: transform;
+  filter: drop-shadow(0 15px 35px rgba(0, 0, 0, 0.75));
+  transition: filter 0.3s ease;
+}
+
+.circular-carousel__card:hover {
+  filter: drop-shadow(0 20px 45px rgba(0, 0, 0, 0.95)) drop-shadow(0 0 25px rgba(227, 38, 46, 0.3));
+}
+
+.circular-carousel__tile {
+  position: absolute;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  pointer-events: none;
+  will-change: transform;
+}
+
+.circular-carousel__frame {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: var(--cc-radius, 12px);
+  background: #0d0d0e;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  pointer-events: auto;
+}
+
+.circular-carousel__frame:hover {
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.circular-carousel__photo {
+  position: absolute;
+  max-width: none;
+  max-height: none;
+  object-fit: cover;
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.circular-carousel__photo--leaving {
+  position: absolute;
+  inset: 0;
+  opacity: 1;
+  animation: cc-leave 700ms forwards cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes cc-leave {
+  to {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+}
+
+.circular-carousel__inner {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, var(--cc-inner, 0.4));
+  pointer-events: none;
+}
+
+.circular-carousel__shade {
+  position: absolute;
+  inset: 0;
+  background: var(--cc-fade, #000);
+  opacity: var(--cc-depth, 0);
+  pointer-events: none;
+  transition: opacity 0.15s ease-out;
+}
+
+.circular-carousel__caption {
+  position: absolute;
+  bottom: 24px;
+  left: 24px;
+  right: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #fff;
+  z-index: 10;
+  pointer-events: none;
+  background: rgba(16, 16, 16, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 12px 20px;
+  border-radius: 12px;
+}
+
+.circular-carousel__title {
+  font-family: 'Space Grotesk', monospace;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: #fff;
+}
+
+.circular-carousel__subtitle {
+  margin-left: 10px;
+  font-size: 0.8rem;
+  color: #E3262E;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.circular-carousel__count {
+  display: flex;
+  align-items: center;
+  font-family: monospace;
+  font-size: 0.85rem;
+  color: #aaa;
+}
+
+.circular-carousel__digits {
+  display: inline-flex;
+}
+
+.circular-carousel__digit {
+  display: inline-block;
+  height: 1.2em;
+  overflow: hidden;
+  vertical-align: middle;
+}
+
+.circular-carousel__reel {
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.circular-carousel__slash {
+  margin: 0 4px;
+  opacity: 0.5;
+}
+
+.circular-carousel__live {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+

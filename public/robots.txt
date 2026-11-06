@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://sanatelcomunicacaovisual.com.br/sitemap.xml
+
