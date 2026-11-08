@@ -34,89 +34,107 @@ export const ProductionCapabilities: React.FC = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
 
             {/* Machine 1: Mesa de Corte e Usinagem */}
-            <div className="p-8 rounded-3xl bg-sanatel-surface border border-sanatel-border shadow-2xl space-y-6 flex flex-col justify-between group hover:border-sanatel-red/50 transition-all">
-              <div className="space-y-4">
-                <div className="relative aspect-[16/10] rounded-2xl overflow-hidden bg-sanatel-black border border-sanatel-border">
-                  <img
-                    src="/assets/maquina-usinagem-industrial.png"
-                    alt="Centro de Usinagem e Corte de Alta Precisão Sanatel - Corte e Fresagem de ACM e Acrílico"
-                    loading="lazy"
-                    decoding="async"
-                    className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
-                  />
-                  <div className="absolute top-4 left-4">
-                    <span className="tech-label text-xs font-bold bg-sanatel-black/90 text-sanatel-red border border-sanatel-border px-3 py-1 rounded-md backdrop-blur-md">
-                      USINAGEM & CORTE INDUSTRIAL
-                    </span>
+            <div className="relative p-[2.5px] rounded-3xl overflow-hidden group shadow-2xl shadow-black/50 flex flex-col justify-between">
+              {/* Luminous Animated Edge Beam */}
+              <div
+                className="absolute inset-[-150%] bg-[conic-gradient(from_0deg,transparent_0deg,transparent_200deg,rgba(227,38,46,0.45)_240deg,#E3262E_310deg,#FFFFFF_345deg,#E3262E_355deg,transparent_360deg)] opacity-80 group-hover:opacity-100 transition-opacity duration-500 animate-[spin_8s_linear_infinite] drop-shadow-[0_0_15px_rgba(227,38,46,0.45)]"
+                style={{ willChange: 'transform' }}
+              />
+              <div className="absolute inset-0 rounded-3xl border border-sanatel-border/80 pointer-events-none" />
+
+              <div className="relative z-10 w-full h-full rounded-[21.5px] overflow-hidden bg-sanatel-surface p-8 space-y-6 flex flex-col justify-between">
+                <div className="space-y-4">
+                  <div className="relative aspect-[16/10] rounded-2xl overflow-hidden bg-sanatel-black border border-sanatel-border">
+                    <img
+                      src="/assets/maquina-usinagem-industrial.png"
+                      alt="Centro de Usinagem e Corte de Alta Precisão Sanatel - Corte e Fresagem de ACM e Acrílico"
+                      loading="lazy"
+                      decoding="async"
+                      className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <div className="absolute top-4 left-4">
+                      <span className="tech-label text-xs font-bold bg-sanatel-black/90 text-sanatel-red border border-sanatel-border px-3 py-1 rounded-md backdrop-blur-md">
+                        USINAGEM & CORTE INDUSTRIAL
+                      </span>
+                    </div>
+                  </div>
+
+                  <div className="space-y-2">
+                    <h3 className="text-2xl font-bold text-white group-hover:text-sanatel-red transition-colors">
+                      Corte & Usinagem Computadorizada
+                    </h3>
+                    <p className="text-xs sm:text-sm text-sanatel-gray-400 leading-relaxed">
+                      Usinagem de chapas inteiras de ACM, acrílico virgem, MDF, PVC expandido e plásticos técnicos. A fresagem com ângulo de 90° permite dobras perfeitas de bandejas de ACM com cantos vivos e fechamento impecável.
+                    </p>
                   </div>
                 </div>
 
-                <div className="space-y-2">
-                  <h3 className="text-2xl font-bold text-white group-hover:text-sanatel-red transition-colors">
-                    Corte & Usinagem Computadorizada
-                  </h3>
-                  <p className="text-xs sm:text-sm text-sanatel-gray-400 leading-relaxed">
-                    Usinagem de chapas inteiras de ACM, acrílico virgem, MDF, PVC expandido e plásticos técnicos. A fresagem com ângulo de 90° permite dobras perfeitas de bandejas de ACM com cantos vivos e fechamento impecável.
-                  </p>
-                </div>
-              </div>
-
-              <div className="grid grid-cols-3 gap-3 pt-4 border-t border-sanatel-border/60 text-xs">
-                <div className="bg-sanatel-black p-3 rounded-xl border border-sanatel-border">
-                  <span className="text-sanatel-gray-400 block text-[10px] tech-label">ÁREA ÚTIL</span>
-                  <span className="font-bold text-white tech-label">Grande Formato</span>
-                </div>
-                <div className="bg-sanatel-black p-3 rounded-xl border border-sanatel-border">
-                  <span className="text-sanatel-gray-400 block text-[10px] tech-label">PRECISÃO</span>
-                  <span className="font-bold text-sanatel-red tech-label">±0.05mm</span>
-                </div>
-                <div className="bg-sanatel-black p-3 rounded-xl border border-sanatel-border">
-                  <span className="text-sanatel-gray-400 block text-[10px] tech-label">MATERIAIS</span>
-                  <span className="font-bold text-white tech-label">ACM / Acrílico</span>
+                <div className="grid grid-cols-3 gap-3 pt-4 border-t border-sanatel-border/60 text-xs">
+                  <div className="bg-sanatel-black p-3 rounded-xl border border-sanatel-border">
+                    <span className="text-sanatel-gray-400 block text-[10px] tech-label">ÁREA ÚTIL</span>
+                    <span className="font-bold text-white tech-label">Grande Formato</span>
+                  </div>
+                  <div className="bg-sanatel-black p-3 rounded-xl border border-sanatel-border">
+                    <span className="text-sanatel-gray-400 block text-[10px] tech-label">PRECISÃO</span>
+                    <span className="font-bold text-sanatel-red tech-label">±0.05mm</span>
+                  </div>
+                  <div className="bg-sanatel-black p-3 rounded-xl border border-sanatel-border">
+                    <span className="text-sanatel-gray-400 block text-[10px] tech-label">MATERIAIS</span>
+                    <span className="font-bold text-white tech-label">ACM / Acrílico</span>
+                  </div>
                 </div>
               </div>
             </div>
 
             {/* Machine 2: Impressão Digital Solvente */}
-            <div className="p-8 rounded-3xl bg-sanatel-surface border border-sanatel-border shadow-2xl space-y-6 flex flex-col justify-between group hover:border-sanatel-red/50 transition-all">
-              <div className="space-y-4">
-                <div className="relative aspect-[16/10] rounded-2xl overflow-hidden bg-sanatel-black border border-sanatel-border">
-                  <img
-                    src="/assets/maquina-impressao-digital.jpg"
-                    alt="Máquina de Impressão Digital Solvente de Alta Resolução Sanatel"
-                    loading="lazy"
-                    decoding="async"
-                    className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
-                  />
-                  <div className="absolute top-4 left-4">
-                    <span className="tech-label text-xs font-bold bg-sanatel-black/90 text-sanatel-red border border-sanatel-border px-3 py-1 rounded-md backdrop-blur-md">
-                      IMPRESSORA DIGITAL SOLVENTE
-                    </span>
+            <div className="relative p-[2.5px] rounded-3xl overflow-hidden group shadow-2xl shadow-black/50 flex flex-col justify-between">
+              {/* Luminous Animated Edge Beam */}
+              <div
+                className="absolute inset-[-150%] bg-[conic-gradient(from_0deg,transparent_0deg,transparent_200deg,rgba(227,38,46,0.45)_240deg,#E3262E_310deg,#FFFFFF_345deg,#E3262E_355deg,transparent_360deg)] opacity-80 group-hover:opacity-100 transition-opacity duration-500 animate-[spin_9s_linear_infinite] drop-shadow-[0_0_15px_rgba(227,38,46,0.45)]"
+                style={{ willChange: 'transform' }}
+              />
+              <div className="absolute inset-0 rounded-3xl border border-sanatel-border/80 pointer-events-none" />
+
+              <div className="relative z-10 w-full h-full rounded-[21.5px] overflow-hidden bg-sanatel-surface p-8 space-y-6 flex flex-col justify-between">
+                <div className="space-y-4">
+                  <div className="relative aspect-[16/10] rounded-2xl overflow-hidden bg-sanatel-black border border-sanatel-border">
+                    <img
+                      src="/assets/maquina-impressao-digital.jpg"
+                      alt="Máquina de Impressão Digital Solvente de Alta Resolução Sanatel"
+                      loading="lazy"
+                      decoding="async"
+                      className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <div className="absolute top-4 left-4">
+                      <span className="tech-label text-xs font-bold bg-sanatel-black/90 text-sanatel-red border border-sanatel-border px-3 py-1 rounded-md backdrop-blur-md">
+                        IMPRESSORA DIGITAL SOLVENTE
+                      </span>
+                    </div>
+                  </div>
+
+                  <div className="space-y-2">
+                    <h3 className="text-2xl font-bold text-white group-hover:text-sanatel-red transition-colors">
+                      Impressão Digital Solvente de Alta Fidelidade
+                    </h3>
+                    <p className="text-xs sm:text-sm text-sanatel-gray-400 leading-relaxed">
+                      Sistema de impressão de altíssima definição fotográfica com tintas originais resistentes à radiação ultravioleta. Utilizada para adesivagem de frotas comerciais, vitrines, lonas translúcidas e sinalização de interiores.
+                    </p>
                   </div>
                 </div>
 
-                <div className="space-y-2">
-                  <h3 className="text-2xl font-bold text-white group-hover:text-sanatel-red transition-colors">
-                    Impressão Digital Solvente de Alta Fidelidade
-                  </h3>
-                  <p className="text-xs sm:text-sm text-sanatel-gray-400 leading-relaxed">
-                    Sistema de impressão de altíssima definição fotográfica com tintas originais resistentes à radiação ultravioleta. Utilizada para adesivagem de frotas comerciais, vitrines, lonas translúcidas e sinalização de interiores.
-                  </p>
-                </div>
-              </div>
-
-              <div className="grid grid-cols-3 gap-3 pt-4 border-t border-sanatel-border/60 text-xs">
-                <div className="bg-sanatel-black p-3 rounded-xl border border-sanatel-border">
-                  <span className="text-sanatel-gray-400 block text-[10px] tech-label">RESOLUÇÃO</span>
-                  <span className="font-bold text-white tech-label">1440 DPI</span>
-                </div>
-                <div className="bg-sanatel-black p-3 rounded-xl border border-sanatel-border">
-                  <span className="text-sanatel-gray-400 block text-[10px] tech-label">TINTAS</span>
-                  <span className="font-bold text-sanatel-red tech-label">Eco-Solvente UV</span>
-                </div>
-                <div className="bg-sanatel-black p-3 rounded-xl border border-sanatel-border">
-                  <span className="text-sanatel-gray-400 block text-[10px] tech-label">SUPORTE</span>
-                  <span className="font-bold text-white tech-label">Vinil & Lona</span>
+                <div className="grid grid-cols-3 gap-3 pt-4 border-t border-sanatel-border/60 text-xs">
+                  <div className="bg-sanatel-black p-3 rounded-xl border border-sanatel-border">
+                    <span className="text-sanatel-gray-400 block text-[10px] tech-label">RESOLUÇÃO</span>
+                    <span className="font-bold text-white tech-label">1440 DPI</span>
+                  </div>
+                  <div className="bg-sanatel-black p-3 rounded-xl border border-sanatel-border">
+                    <span className="text-sanatel-gray-400 block text-[10px] tech-label">TINTAS</span>
+                    <span className="font-bold text-sanatel-red tech-label">Eco-Solvente UV</span>
+                  </div>
+                  <div className="bg-sanatel-black p-3 rounded-xl border border-sanatel-border">
+                    <span className="text-sanatel-gray-400 block text-[10px] tech-label">SUPORTE</span>
+                    <span className="font-bold text-white tech-label">Vinil & Lona</span>
+                  </div>
                 </div>
               </div>
             </div>

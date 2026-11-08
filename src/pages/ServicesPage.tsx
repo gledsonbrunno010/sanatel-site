@@ -1,11 +1,14 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, CheckCircle2, ShieldCheck, Ruler, ArrowUpRight, Sparkles, Target } from 'lucide-react';
+import { ArrowRight, CheckCircle2, ShieldCheck, Ruler, ArrowUpRight, Sparkles, Target, ZoomIn } from 'lucide-react';
 import { SERVICES } from '../data/companyData';
 import { ConversionCta } from '../components/home/ConversionCta';
 import AnimatedContent from '../components/ui/AnimatedContent';
+import { ImageModal, ImageModalData } from '../components/common/ImageModal';
 
 export const ServicesPage: React.FC = () => {
+  const [selectedImage, setSelectedImage] = useState<ImageModalData | null>(null);
+
   useEffect(() => {
     document.title = "Serviços de Comunicação Visual em Brasília DF | Fachadas em ACM e Letras Caixa | Sanatel";
     window.scrollTo(0, 0);
@@ -41,15 +44,38 @@ export const ServicesPage: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16 relative z-10">
           {SERVICES.map((service, index) => (
             <AnimatedContent key={service.id} distance={60} direction="vertical" duration={0.8} ease="power3.out" trigger="scroll">
-              <div
-                className={`grid grid-cols-1 lg:grid-cols-12 gap-10 items-center p-8 sm:p-12 rounded-3xl bg-white border border-slate-200/90 hover:border-sanatel-red/60 transition-all shadow-xl shadow-slate-900/10 hover:shadow-2xl ${
-                  index % 2 === 1 ? 'lg:flex-row-reverse' : ''
+              <div className="relative p-[2.5px] rounded-3xl overflow-hidden group shadow-xl shadow-slate-900/10">
+                {/* Luminous Animated Edge Beam */}
+                <div
+                  className="absolute inset-[-150%] bg-[conic-gradient(from_0deg,transparent_0deg,transparent_200deg,rgba(227,38,46,0.5)_240deg,#E3262E_310deg,#FFFFFF_345deg,#E3262E_355deg,transparent_360deg)] opacity-75 group-hover:opacity-100 transition-opacity duration-500 animate-[spin_8s_linear_infinite] drop-shadow-[0_0_12px_rgba(227,38,46,0.35)]"
+                  style={{
+                    animationDuration: `${7.5 + index * 0.8}s`,
+                    willChange: 'transform'
+                  }}
+                />
+                <div className="absolute inset-0 rounded-3xl border border-slate-200/90 pointer-events-none" />
+
+                <div
+                  className={`relative z-10 w-full h-full rounded-[21.5px] overflow-hidden bg-white grid grid-cols-1 lg:grid-cols-12 gap-10 items-center p-8 sm:p-12 ${
+                    index % 2 === 1 ? 'lg:flex-row-reverse' : ''
+                  }`}
+                >
+              {/* Image Side (6 cols) Framed in Dark Bezel - Click to Open Pop-up */}
+              <div 
+                className={`lg:col-span-6 relative aspect-[16/10] rounded-2xl overflow-hidden bg-slate-950 border border-slate-300 shadow-xl group cursor-pointer ${
+                  index % 2 === 1 ? 'lg:order-2' : ''
                 }`}
+                onClick={() => setSelectedImage({
+                  src: service.image,
+                  alt: service.title,
+                  title: service.title,
+                  subtitle: service.subtitle,
+                  badge: service.badge,
+                  description: service.commercialHook || service.description,
+                  serviceSlug: service.slug
+                })}
+                title={`Clique para ampliar foto de ${service.title}`}
               >
-              {/* Image Side (6 cols) Framed in Dark Bezel */}
-              <div className={`lg:col-span-6 relative aspect-[16/10] rounded-2xl overflow-hidden bg-slate-950 border border-slate-300 shadow-xl group ${
-                index % 2 === 1 ? 'lg:order-2' : ''
-              }`}>
                 <img
                   src={service.image}
                   alt={service.title}
@@ -57,9 +83,17 @@ export const ServicesPage: React.FC = () => {
                   decoding="async"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                 />
-                <div className="absolute top-4 left-4">
+                <div className="absolute top-4 left-4 z-10">
                   <span className="tech-label text-xs font-bold bg-slate-950/90 text-sanatel-red px-3 py-1 rounded-md border border-slate-800 backdrop-blur-md shadow-md">
                     {service.badge}
+                  </span>
+                </div>
+
+                {/* Subtle Hover Zoom Overlay */}
+                <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center z-10">
+                  <span className="inline-flex items-center space-x-1.5 px-3.5 py-2 rounded-full bg-slate-950/90 text-white text-xs font-semibold backdrop-blur-md border border-white/20 shadow-xl">
+                    <ZoomIn className="w-4 h-4 text-sanatel-red" />
+                    <span>Clique para ampliar foto</span>
                   </span>
                 </div>
               </div>
@@ -117,12 +151,19 @@ export const ServicesPage: React.FC = () => {
               </div>
 
               </div>
+              </div>
             </AnimatedContent>
           ))}
         </div>
       </section>
 
       <ConversionCta />
+
+      {/* Services Image Preview Pop-up Modal */}
+      <ImageModal
+        data={selectedImage}
+        onClose={() => setSelectedImage(null)}
+      />
     </div>
   );
 };

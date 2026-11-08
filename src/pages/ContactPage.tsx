@@ -56,97 +56,137 @@ export const ContactPage: React.FC = () => {
                 </p>
               </div>
 
-              {/* Cards */}
+              {/* Cards with Luminous Animated Edge Beam */}
               <div className="space-y-4">
                 {/* WhatsApp */}
-                <a
-                  href={`https://wa.me/${COMPANY_INFO.whatsappNumber}?text=${encodeURIComponent(COMPANY_INFO.whatsappDefaultMessage)}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="p-6 rounded-2xl bg-white border border-slate-200/90 hover:border-emerald-500/60 transition-all flex items-start space-x-4 group block shadow-xl shadow-slate-900/10 hover:shadow-2xl"
-                >
-                  <div className="p-3 rounded-xl bg-emerald-50 text-[#25D366] group-hover:bg-[#25D366] group-hover:text-white transition-colors">
-                    <WhatsAppIcon className="w-6 h-6" />
-                  </div>
-                  <div className="space-y-1">
-                    <div className="text-xs tech-label text-slate-500 font-bold">WHATSAPP DIRETO</div>
-                    <div className="text-lg font-extrabold text-slate-950 group-hover:text-emerald-600 transition-colors">
-                      {COMPANY_INFO.phone}
+                <div className="relative p-[2px] rounded-2xl overflow-hidden group shadow-xl shadow-slate-900/10">
+                  <div
+                    className="absolute inset-[-150%] bg-[conic-gradient(from_0deg,transparent_0deg,transparent_200deg,rgba(37,211,102,0.45)_240deg,#25D366_310deg,#FFFFFF_345deg,#25D366_355deg,transparent_360deg)] opacity-75 group-hover:opacity-100 transition-opacity duration-500 animate-[spin_7s_linear_infinite] drop-shadow-[0_0_12px_rgba(37,211,102,0.4)]"
+                    style={{ willChange: 'transform' }}
+                  />
+                  <div className="absolute inset-0 rounded-2xl border border-slate-200/90 pointer-events-none" />
+                  
+                  <a
+                    href={`https://wa.me/${COMPANY_INFO.whatsappNumber}?text=${encodeURIComponent(COMPANY_INFO.whatsappDefaultMessage)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="relative z-10 w-full h-full rounded-[14px] overflow-hidden bg-white p-6 flex items-start space-x-4 block"
+                  >
+                    <div className="p-3 rounded-xl bg-emerald-50 text-[#25D366] group-hover:bg-[#25D366] group-hover:text-white transition-colors">
+                      <WhatsAppIcon className="w-6 h-6" />
                     </div>
-                    <div className="text-xs text-green-600 font-semibold flex items-center">
-                      <span className="w-2 h-2 rounded-full bg-green-500 mr-1.5 animate-pulse"></span>
-                      Online em horário comercial
+                    <div className="space-y-1">
+                      <div className="text-xs tech-label text-slate-500 font-bold">WHATSAPP DIRETO</div>
+                      <div className="text-lg font-extrabold text-slate-950 group-hover:text-emerald-600 transition-colors">
+                        {COMPANY_INFO.phone}
+                      </div>
+                      <div className="text-xs text-green-600 font-semibold flex items-center">
+                        <span className="w-2 h-2 rounded-full bg-green-500 mr-1.5 animate-pulse"></span>
+                        Online em horário comercial
+                      </div>
                     </div>
-                  </div>
-                </a>
+                  </a>
+                </div>
 
                 {/* E-mail */}
-                <a
-                  href={`mailto:${COMPANY_INFO.email}`}
-                  className="p-6 rounded-2xl bg-white border border-slate-200/90 hover:border-sanatel-red/60 transition-all flex items-start space-x-4 group block shadow-xl shadow-slate-900/10 hover:shadow-2xl"
-                >
-                  <div className="p-3 rounded-xl bg-red-50 text-sanatel-red group-hover:bg-sanatel-red group-hover:text-white transition-colors">
-                    <Mail className="w-6 h-6" />
-                  </div>
-                  <div className="space-y-1">
-                    <div className="text-xs tech-label text-slate-500 font-bold">E-MAIL CORPORATIVO</div>
-                    <div className="text-base font-extrabold text-slate-950 group-hover:text-sanatel-red transition-colors break-all">
-                      {COMPANY_INFO.email}
+                <div className="relative p-[2px] rounded-2xl overflow-hidden group shadow-xl shadow-slate-900/10">
+                  <div
+                    className="absolute inset-[-150%] bg-[conic-gradient(from_0deg,transparent_0deg,transparent_200deg,rgba(227,38,46,0.45)_240deg,#E3262E_310deg,#FFFFFF_345deg,#E3262E_355deg,transparent_360deg)] opacity-75 group-hover:opacity-100 transition-opacity duration-500 animate-[spin_8s_linear_infinite] drop-shadow-[0_0_12px_rgba(227,38,46,0.4)]"
+                    style={{ willChange: 'transform' }}
+                  />
+                  <div className="absolute inset-0 rounded-2xl border border-slate-200/90 pointer-events-none" />
+
+                  <a
+                    href={`mailto:${COMPANY_INFO.email}`}
+                    className="relative z-10 w-full h-full rounded-[14px] overflow-hidden bg-white p-6 flex items-start space-x-4 block"
+                  >
+                    <div className="p-3 rounded-xl bg-red-50 text-sanatel-red group-hover:bg-sanatel-red group-hover:text-white transition-colors">
+                      <Mail className="w-6 h-6" />
                     </div>
-                    <div className="text-xs text-slate-500">Envio de plantas e projetos executivos</div>
-                  </div>
-                </a>
+                    <div className="space-y-1">
+                      <div className="text-xs tech-label text-slate-500 font-bold">E-MAIL CORPORATIVO</div>
+                      <div className="text-base font-extrabold text-slate-950 group-hover:text-sanatel-red transition-colors break-all">
+                        {COMPANY_INFO.email}
+                      </div>
+                      <div className="text-xs text-slate-500">Envio de plantas e projetos executivos</div>
+                    </div>
+                  </a>
+                </div>
 
                 {/* Localização */}
-                <div className="p-6 rounded-2xl bg-white border border-slate-200/90 flex items-start space-x-4 shadow-xl shadow-slate-900/10">
-                  <div className="p-3 rounded-xl bg-red-50 text-sanatel-red">
-                    <MapPin className="w-6 h-6" />
-                  </div>
-                  <div className="space-y-1">
-                    <div className="text-xs tech-label text-slate-500 font-bold">REGIÃO DE ATENDIMENTO</div>
-                    <div className="text-base font-extrabold text-slate-950">
-                      {COMPANY_INFO.city}
+                <div className="relative p-[2px] rounded-2xl overflow-hidden group shadow-xl shadow-slate-900/10">
+                  <div
+                    className="absolute inset-[-150%] bg-[conic-gradient(from_0deg,transparent_0deg,transparent_200deg,rgba(227,38,46,0.45)_240deg,#E3262E_310deg,#FFFFFF_345deg,#E3262E_355deg,transparent_360deg)] opacity-70 group-hover:opacity-100 transition-opacity duration-500 animate-[spin_9s_linear_infinite] drop-shadow-[0_0_12px_rgba(227,38,46,0.4)]"
+                    style={{ willChange: 'transform' }}
+                  />
+                  <div className="absolute inset-0 rounded-2xl border border-slate-200/90 pointer-events-none" />
+
+                  <div className="relative z-10 w-full h-full rounded-[14px] overflow-hidden bg-white p-6 flex items-start space-x-4">
+                    <div className="p-3 rounded-xl bg-red-50 text-sanatel-red">
+                      <MapPin className="w-6 h-6" />
                     </div>
-                    <div className="text-xs text-slate-600">
-                      {COMPANY_INFO.regionServed}
+                    <div className="space-y-1">
+                      <div className="text-xs tech-label text-slate-500 font-bold">REGIÃO DE ATENDIMENTO</div>
+                      <div className="text-base font-extrabold text-slate-950">
+                        {COMPANY_INFO.city}
+                      </div>
+                      <div className="text-xs text-slate-600">
+                        {COMPANY_INFO.regionServed}
+                      </div>
                     </div>
                   </div>
                 </div>
 
                 {/* Horário */}
-                <div className="p-6 rounded-2xl bg-white border border-slate-200/90 flex items-start space-x-4 shadow-xl shadow-slate-900/10">
-                  <div className="p-3 rounded-xl bg-red-50 text-sanatel-red">
-                    <Clock className="w-6 h-6" />
-                  </div>
-                  <div className="space-y-1">
-                    <div className="text-xs tech-label text-slate-500 font-bold">HORÁRIO DE FUNCIONAMENTO</div>
-                    <div className="text-base font-extrabold text-slate-950">
-                      {COMPANY_INFO.businessHours}
+                <div className="relative p-[2px] rounded-2xl overflow-hidden group shadow-xl shadow-slate-900/10">
+                  <div
+                    className="absolute inset-[-150%] bg-[conic-gradient(from_0deg,transparent_0deg,transparent_200deg,rgba(227,38,46,0.45)_240deg,#E3262E_310deg,#FFFFFF_345deg,#E3262E_355deg,transparent_360deg)] opacity-70 group-hover:opacity-100 transition-opacity duration-500 animate-[spin_10s_linear_infinite] drop-shadow-[0_0_12px_rgba(227,38,46,0.4)]"
+                    style={{ willChange: 'transform' }}
+                  />
+                  <div className="absolute inset-0 rounded-2xl border border-slate-200/90 pointer-events-none" />
+
+                  <div className="relative z-10 w-full h-full rounded-[14px] overflow-hidden bg-white p-6 flex items-start space-x-4">
+                    <div className="p-3 rounded-xl bg-red-50 text-sanatel-red">
+                      <Clock className="w-6 h-6" />
                     </div>
-                    <div className="text-xs text-slate-600">
-                      Plantão via WhatsApp para obras em andamento
+                    <div className="space-y-1">
+                      <div className="text-xs tech-label text-slate-500 font-bold">HORÁRIO DE FUNCIONAMENTO</div>
+                      <div className="text-base font-extrabold text-slate-950">
+                        {COMPANY_INFO.businessHours}
+                      </div>
+                      <div className="text-xs text-slate-600">
+                        Plantão via WhatsApp para obras em andamento
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
 
-              {/* Instagram Banner (Dark Tone Accent) */}
-              <div className="p-6 rounded-2xl bg-slate-950 border border-slate-800 flex items-center justify-between text-white shadow-xl">
-                <div className="flex items-center space-x-3">
-                  <InstagramIcon className="w-6 h-6 text-sanatel-red" />
-                  <div>
-                    <div className="text-xs tech-label text-slate-400">SIGA NOSSO TRABALHO</div>
-                    <div className="text-sm font-bold text-white">{COMPANY_INFO.instagram}</div>
+              {/* Instagram Banner (Dark Tone Accent) with Animated Edge */}
+              <div className="relative p-[2px] rounded-2xl overflow-hidden group shadow-xl">
+                <div
+                  className="absolute inset-[-150%] bg-[conic-gradient(from_0deg,transparent_0deg,transparent_200deg,rgba(227,38,46,0.45)_240deg,#E3262E_310deg,#FFFFFF_345deg,#E3262E_355deg,transparent_360deg)] opacity-75 group-hover:opacity-100 transition-opacity duration-500 animate-[spin_8s_linear_infinite] drop-shadow-[0_0_12px_rgba(227,38,46,0.4)]"
+                  style={{ willChange: 'transform' }}
+                />
+                <div className="absolute inset-0 rounded-2xl border border-slate-800 pointer-events-none" />
+
+                <div className="relative z-10 w-full h-full rounded-[14px] overflow-hidden bg-slate-950 p-6 flex items-center justify-between text-white">
+                  <div className="flex items-center space-x-3">
+                    <InstagramIcon className="w-6 h-6 text-sanatel-red" />
+                    <div>
+                      <div className="text-xs tech-label text-slate-400">SIGA NOSSO TRABALHO</div>
+                      <div className="text-sm font-bold text-white">{COMPANY_INFO.instagram}</div>
+                    </div>
                   </div>
+                  <a
+                    href={COMPANY_INFO.instagramUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-xs font-bold tech-label bg-sanatel-red hover:bg-sanatel-red-hover px-4 py-2 rounded-lg text-white shadow-md transition-all"
+                  >
+                    Seguir →
+                  </a>
                 </div>
-                <a
-                  href={COMPANY_INFO.instagramUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-xs font-bold tech-label bg-sanatel-red hover:bg-sanatel-red-hover px-4 py-2 rounded-lg text-white shadow-md transition-all"
-                >
-                  Seguir →
-                </a>
               </div>
 
             </div>

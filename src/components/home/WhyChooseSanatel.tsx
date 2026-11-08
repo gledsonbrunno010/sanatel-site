@@ -45,13 +45,13 @@ export const WhyChooseSanatel: React.FC = () => {
           {WHY_CHOOSE_US.map((pillar, idx) => (
             <div
               key={idx}
-              className="relative p-[1.5px] rounded-2xl overflow-hidden group flex flex-col justify-between shadow-xl shadow-black/40"
+              className="relative p-[2.5px] rounded-2xl overflow-hidden group flex flex-col justify-between shadow-2xl shadow-black/50"
             >
-              {/* Luminous Animated Edge Beam (Fluid 60fps Conic Rotation) */}
+              {/* Luminous Animated Edge Beam (Enhanced Visibility & 60fps Conic Rotation) */}
               <div
-                className="absolute inset-[-150%] bg-[conic-gradient(from_0deg,transparent_0deg,transparent_280deg,rgba(227,38,46,0.45)_315deg,#E3262E_345deg,#FFFFFF_355deg,transparent_360deg)] opacity-70 group-hover:opacity-100 transition-opacity duration-500 animate-[spin_7s_linear_infinite]"
+                className="absolute inset-[-150%] bg-[conic-gradient(from_0deg,transparent_0deg,transparent_200deg,rgba(227,38,46,0.45)_240deg,#E3262E_310deg,#FFFFFF_345deg,#E3262E_355deg,transparent_360deg)] opacity-85 group-hover:opacity-100 transition-opacity duration-500 animate-[spin_6s_linear_infinite] drop-shadow-[0_0_12px_rgba(227,38,46,0.45)]"
                 style={{
-                  animationDuration: `${6.5 + idx * 0.8}s`,
+                  animationDuration: `${5.5 + idx * 0.7}s`,
                   willChange: 'transform'
                 }}
               />
@@ -60,7 +60,7 @@ export const WhyChooseSanatel: React.FC = () => {
               <div className="absolute inset-0 rounded-2xl border border-sanatel-border/80 pointer-events-none" />
 
               {/* Solid High-Tech Card Body */}
-              <div className="relative z-10 w-full h-full p-7 sm:p-8 rounded-[14.5px] bg-[#161619] group-hover:bg-[#19191d] transition-colors duration-300 flex flex-col justify-between space-y-6">
+              <div className="relative z-10 w-full h-full p-7 sm:p-8 rounded-[13.5px] bg-[#161619] group-hover:bg-[#19191d] transition-colors duration-300 flex flex-col justify-between space-y-6">
                 <div className="space-y-4">
                   <div className="flex items-center justify-between">
                     <span className="font-extrabold text-3xl font-mono text-sanatel-red/80 group-hover:text-sanatel-red transition-colors">

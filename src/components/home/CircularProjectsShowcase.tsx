@@ -7,12 +7,32 @@ import AnimatedContent from '../ui/AnimatedContent';
 
 export const CircularProjectsShowcase: React.FC = () => {
   const [isMobile, setIsMobile] = React.useState(false);
+  const [inView, setInView] = React.useState(false);
+  const containerRef = React.useRef<HTMLDivElement>(null);
 
   React.useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth < 640);
     checkMobile();
     window.addEventListener('resize', checkMobile);
     return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  // Defer heavy 3D carousel and 16 image decodes until within 300px of viewport
+  React.useEffect(() => {
+    if (typeof window === 'undefined') return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setInView(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: '300px' }
+    );
+    if (containerRef.current) {
+      observer.observe(containerRef.current);
+    }
+    return () => observer.disconnect();
   }, []);
 
   // Select all real projects executed by Sanatel as requested
@@ -24,7 +44,7 @@ export const CircularProjectsShowcase: React.FC = () => {
   }));
 
   return (
-    <section className="py-20 lg:py-24 bg-gradient-to-b from-[#10090c] to-[#1e080d] relative border-b border-sanatel-border overflow-hidden">
+    <section className="pt-12 pb-16 lg:pt-14 lg:pb-20 bg-gradient-to-b from-[#10090c] to-[#1e080d] relative border-b border-sanatel-border overflow-hidden">
       {/* High-Tech Background Atmosphere */}
       <div className="absolute inset-0 bg-arch-grid opacity-45 pointer-events-none" />
       <div className="absolute inset-0 bg-radial-crimson opacity-90 pointer-events-none" />
@@ -33,14 +53,14 @@ export const CircularProjectsShowcase: React.FC = () => {
         
         {/* Section Header */}
         <AnimatedContent
-          distance={50}
+          distance={40}
           direction="vertical"
           duration={0.8}
           ease="power3.out"
           threshold={0.15}
         >
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 pb-6 border-b border-sanatel-border text-center md:text-left">
-            <div className="space-y-3">
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-4 pb-3 sm:mb-5 sm:pb-4 border-b border-sanatel-border text-center md:text-left">
+            <div className="space-y-2.5">
               <div className="inline-flex items-center space-x-2 text-xs font-bold tech-label text-sanatel-red bg-sanatel-surface px-3 py-1 rounded-md border border-sanatel-border mx-auto md:mx-0">
                 <Layers className="w-3.5 h-3.5" />
                 <span>GALERIA 3D // OBRAS EXECUTADAS NO DISTRITO FEDERAL</span>
@@ -52,7 +72,7 @@ export const CircularProjectsShowcase: React.FC = () => {
                 </span>
               </h2>
             </div>
-            <div className="mt-4 md:mt-0 space-y-2 max-w-sm text-center md:text-left mx-auto md:mx-0">
+            <div className="mt-4 md:mt-0 space-y-1.5 max-w-sm text-center md:text-left mx-auto md:mx-0">
               <p className="text-sm text-sanatel-gray-400">
                 Arraste com o mouse ou toque na tela para girar as obras e fachadas entregues pela Sanatel em Brasília e entorno.
               </p>
@@ -64,42 +84,50 @@ export const CircularProjectsShowcase: React.FC = () => {
           </div>
         </AnimatedContent>
 
-        {/* 3D Circular Carousel Clean on Screen - No black enclosing border box */}
+        {/* 3D Circular Carousel Clean on Screen - Tightly positioned under header */}
         <AnimatedContent
-          distance={40}
+          distance={30}
           direction="vertical"
-          duration={0.9}
+          duration={0.85}
           ease="power3.out"
           threshold={0.1}
         >
-          <div className="w-full relative" style={{ height: isMobile ? '520px' : '650px' }}>
-            <CircularCarousel
-              items={items}
-              preset="cylinder"
-              intro="none"
-              cardWidth={isMobile ? 260 : 360}
-              aspectRatio={1}
-              speed={12}
-              captions={false}
-              gap={isMobile ? 18 : 28}
-              tilt={-5}
-              curve={1}
-              perspective={isMobile ? 1800 : 2500}
-              autoplay="drift"
-              interval={3}
-              direction="left"
-              momentum={0.65}
-              snap
-              pauseOnHover
-              focusOnClick
-              draggable
-              parallax={0.15}
-              stretch={0.25}
-              fadeColor="#10080a"
-              depthFade={0.35}
-              innerShade={1}
-              cornerRadius={14}
-            />
+          <div ref={containerRef} className="w-full relative -mt-2 sm:-mt-3" style={{ height: isMobile ? '380px' : '460px' }}>
+            {inView ? (
+              <CircularCarousel
+                items={items}
+                preset="cylinder"
+                intro="none"
+                cardWidth={isMobile ? 240 : 340}
+                aspectRatio={1}
+                speed={12}
+                captions={false}
+                gap={isMobile ? 16 : 24}
+                tilt={-4}
+                curve={1}
+                perspective={isMobile ? 1800 : 2500}
+                autoplay="drift"
+                interval={3}
+                direction="left"
+                momentum={0.65}
+                snap
+                pauseOnHover
+                focusOnClick
+                draggable
+                parallax={0.15}
+                stretch={0.25}
+                fadeColor="#10080a"
+                depthFade={0.35}
+                innerShade={1}
+                cornerRadius={14}
+              />
+            ) : (
+              <div className="w-full h-full flex items-center justify-center rounded-2xl bg-sanatel-black/40 border border-white/5">
+                <span className="font-tech text-xs text-sanatel-gray-500 tracking-widest animate-pulse">
+                  GALERIA 3D // PREPARANDO AMBIENTE
+                </span>
+              </div>
+            )}
           </div>
 
           {/* Clean Sub-Bar: Direct CTA without surrounding card */}

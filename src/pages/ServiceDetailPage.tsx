@@ -2,12 +2,13 @@ import React, { useEffect, useState } from 'react';
 import { useParams, Link, Navigate } from 'react-router-dom';
 import {
   CheckCircle2, ArrowRight, ShieldCheck, Ruler, Sparkles, Layers,
-  Phone, MessageSquare, MapPin, Eye, Cpu, Award, XCircle, HelpCircle, ChevronDown, ChevronUp
+  Phone, MessageSquare, MapPin, Eye, Cpu, Award, XCircle, HelpCircle, ChevronDown, ChevronUp, ZoomIn
 } from 'lucide-react';
 import { SERVICES, PROJECTS, COMPANY_INFO } from '../data/companyData';
 import { ContactForm } from '../components/common/ContactForm';
 import { ConversionCta } from '../components/home/ConversionCta';
 import AnimatedContent from '../components/ui/AnimatedContent';
+import { ImageModal, ImageModalData } from '../components/common/ImageModal';
 
 export const ServiceDetailPage: React.FC<{ slugOverride?: string }> = ({ slugOverride }) => {
   const { slug: paramSlug } = useParams<{ slug: string }>();
@@ -15,6 +16,7 @@ export const ServiceDetailPage: React.FC<{ slugOverride?: string }> = ({ slugOve
 
   const service = SERVICES.find(s => s.slug === activeSlug);
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(0);
+  const [selectedImage, setSelectedImage] = useState<ImageModalData | null>(null);
 
   useEffect(() => {
     if (service) {
@@ -105,12 +107,30 @@ export const ServiceDetailPage: React.FC<{ slugOverride?: string }> = ({ slugOve
                     <span className="tech-label text-xs font-bold text-sanatel-red">{service.badge}</span>
                     <span className="text-[11px] text-green-400 font-mono">TOLERÂNCIA ±0.05MM</span>
                   </div>
-                  <div className="aspect-[4/3] rounded-xl overflow-hidden bg-black">
+                  <div 
+                    className="aspect-[4/3] rounded-xl overflow-hidden bg-black relative group cursor-pointer"
+                    onClick={() => setSelectedImage({
+                      src: service.image,
+                      alt: service.title,
+                      title: service.title,
+                      subtitle: service.subtitle,
+                      badge: service.badge,
+                      description: service.commercialHook || service.description,
+                      serviceSlug: service.slug
+                    })}
+                    title={`Clique para ampliar foto de ${service.title}`}
+                  >
                     <img
                       src={service.image}
                       alt={service.title}
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />
+                    <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                      <span className="inline-flex items-center space-x-1.5 px-3 py-1.5 rounded-full bg-sanatel-black/90 text-white text-xs font-semibold backdrop-blur-md border border-white/20 shadow-xl">
+                        <ZoomIn className="w-3.5 h-3.5 text-sanatel-red" />
+                        <span>Clique para ampliar foto</span>
+                      </span>
+                    </div>
                   </div>
                   <div className="text-xs text-sanatel-gray-300">
                     Instalação técnica em todo o Distrito Federal por profissionais certificados com NR-35 e maquinário industrial próprio.
@@ -145,8 +165,26 @@ export const ServiceDetailPage: React.FC<{ slugOverride?: string }> = ({ slugOve
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {relatedProjects.map((proj) => (
                 <div key={proj.id} className="rounded-2xl overflow-hidden bg-white border border-slate-200/90 shadow-xl shadow-slate-900/10 hover:shadow-2xl hover:border-sanatel-red/60 transition-all flex flex-col justify-between group">
-                  <div className="aspect-[4/3] bg-slate-900 overflow-hidden">
-                    <img src={proj.image} alt={proj.title} loading="lazy" decoding="async" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                  <div 
+                    className="aspect-[4/3] bg-slate-900 overflow-hidden relative group/img cursor-pointer"
+                    onClick={() => setSelectedImage({
+                      src: proj.image,
+                      alt: proj.title,
+                      title: proj.title,
+                      subtitle: `${proj.client} // ${proj.category}`,
+                      badge: proj.category,
+                      description: proj.description,
+                      serviceSlug: proj.serviceSlug
+                    })}
+                    title={`Clique para ampliar foto de ${proj.title}`}
+                  >
+                    <img src={proj.image} alt={proj.title} loading="lazy" decoding="async" className="w-full h-full object-cover group-hover/img:scale-105 transition-transform duration-500" />
+                    <div className="absolute inset-0 bg-black/40 opacity-0 group-hover/img:opacity-100 transition-opacity flex items-center justify-center">
+                      <span className="inline-flex items-center space-x-1.5 px-3 py-1.5 rounded-full bg-slate-950/90 text-white text-xs font-semibold backdrop-blur-md border border-white/20 shadow-xl">
+                        <ZoomIn className="w-3.5 h-3.5 text-sanatel-red" />
+                        <span>Clique para ampliar foto</span>
+                      </span>
+                    </div>
                   </div>
                   <div className="p-6 space-y-3 flex-1 flex flex-col justify-between">
                     <div>
@@ -412,6 +450,12 @@ export const ServiceDetailPage: React.FC<{ slugOverride?: string }> = ({ slugOve
       </section>
 
       <ConversionCta />
+
+      {/* Services Image Preview Pop-up Modal */}
+      <ImageModal
+        data={selectedImage}
+        onClose={() => setSelectedImage(null)}
+      />
     </div>
   );
 };

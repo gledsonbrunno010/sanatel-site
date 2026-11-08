@@ -60,63 +60,75 @@ export const SelectedProjects: React.FC = () => {
         {/* Projects Grid with Crisp Architectural Cards */}
         <AnimatedContent distance={60} direction="vertical" duration={0.8} ease="power3.out" trigger="scroll" stagger={0.08} delay={0.1}>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filteredProjects.map((project) => (
+            {filteredProjects.map((project, idx) => (
               <div
                 key={project.id}
-                className="rounded-2xl overflow-hidden bg-white border border-slate-200/90 hover:border-sanatel-red/60 transition-all duration-300 group shadow-xl shadow-slate-900/10 hover:shadow-2xl flex flex-col justify-between"
+                className="relative p-[2.5px] rounded-2xl overflow-hidden group shadow-xl shadow-slate-900/10 hover:shadow-2xl transition-all duration-300 flex flex-col justify-between"
               >
-                {/* Project Image - 100% Bright, Zero Dark Overlay for Crystal-Clear Visibility */}
-                <div className="relative aspect-[4/3] overflow-hidden bg-slate-900">
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    loading="lazy"
-                    decoding="async"
-                    className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
-                  />
-                  
-                  {/* Category Badge */}
-                  <div className="absolute top-3 left-3 z-10">
-                    <span className="tech-label text-[11px] font-bold bg-slate-950/95 text-sanatel-red border border-slate-800 px-3 py-1 rounded-md shadow-lg">
-                      {project.category}
-                    </span>
-                  </div>
+                {/* Luminous Animated Red Beam */}
+                <div
+                  className="absolute inset-[-150%] bg-[conic-gradient(from_0deg,transparent_0deg,transparent_200deg,rgba(227,38,46,0.4)_240deg,#E3262E_300deg,#FF4D55_335deg,#E3262E_355deg,transparent_360deg)] opacity-85 group-hover:opacity-100 transition-opacity duration-500 animate-[spin_7s_linear_infinite] drop-shadow-[0_0_10px_rgba(227,38,46,0.35)]"
+                  style={{
+                    animationDuration: `${6.5 + (idx % 6) * 0.8}s`,
+                    willChange: 'transform'
+                  }}
+                />
+                <div className="absolute inset-0 rounded-2xl border border-slate-200/80 pointer-events-none" />
 
-                  {/* Location Badge */}
-                  <div className="absolute bottom-3 left-3 z-10 flex items-center text-xs text-white bg-slate-950/95 px-2.5 py-1 rounded-md border border-slate-700 shadow-lg font-medium">
-                    <MapPin className="w-3.5 h-3.5 text-sanatel-red mr-1.5" />
-                    <span>{project.location}</span>
-                  </div>
-                </div>
-
-              {/* Project Content */}
-              <div className="p-6 space-y-4 flex-1 flex flex-col justify-between">
-                <div className="space-y-2">
-                  <div className="text-xs font-bold text-sanatel-red tech-label">
-                    CLIENTE: {project.client}
-                  </div>
-                  <h4 className="text-lg font-extrabold text-slate-950 group-hover:text-sanatel-red transition-colors leading-snug">
-                    {project.title}
-                  </h4>
-                  <p className="text-xs text-slate-600 line-clamp-2 leading-relaxed">
-                    {project.description}
-                  </p>
-                </div>
-
-                {/* Technical Specs Tags */}
-                <div className="pt-3 border-t border-slate-200">
-                  <div className="flex flex-wrap gap-1.5">
-                    {project.specs.slice(0, 2).map((spec, sIdx) => (
-                      <span key={sIdx} className="text-[10px] tech-label bg-slate-100 text-slate-800 px-2 py-1 rounded border border-slate-200/90 font-medium">
-                        {spec}
+                <div className="relative z-10 w-full h-full rounded-[13.5px] overflow-hidden bg-white flex flex-col justify-between">
+                  {/* Project Image - 100% Bright, Zero Dark Overlay for Crystal-Clear Visibility */}
+                  <div className="relative aspect-[4/3] overflow-hidden bg-slate-900">
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      loading="lazy"
+                      decoding="async"
+                      className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
+                    />
+                    
+                    {/* Category Badge */}
+                    <div className="absolute top-3 left-3 z-10">
+                      <span className="tech-label text-[11px] font-bold bg-slate-950/95 text-sanatel-red border border-slate-800 px-3 py-1 rounded-md shadow-lg">
+                        {project.category}
                       </span>
-                    ))}
+                    </div>
+
+                    {/* Location Badge */}
+                    <div className="absolute bottom-3 left-3 z-10 flex items-center text-xs text-white bg-slate-950/95 px-2.5 py-1 rounded-md border border-slate-700 shadow-lg font-medium">
+                      <MapPin className="w-3.5 h-3.5 text-sanatel-red mr-1.5" />
+                      <span>{project.location}</span>
+                    </div>
                   </div>
+
+                  {/* Project Content */}
+                  <div className="p-6 space-y-4 flex-1 flex flex-col justify-between">
+                    <div className="space-y-2">
+                      <div className="text-xs font-bold text-sanatel-red tech-label">
+                        CLIENTE: {project.client}
+                      </div>
+                      <h4 className="text-lg font-extrabold text-slate-950 group-hover:text-sanatel-red transition-colors leading-snug">
+                        {project.title}
+                      </h4>
+                      <p className="text-xs text-slate-600 line-clamp-2 leading-relaxed">
+                        {project.description}
+                      </p>
+                    </div>
+
+                    {/* Technical Specs Tags */}
+                    <div className="pt-3 border-t border-slate-200">
+                      <div className="flex flex-wrap gap-1.5">
+                        {project.specs.slice(0, 2).map((spec, sIdx) => (
+                          <span key={sIdx} className="text-[10px] tech-label bg-slate-100 text-slate-800 px-2 py-1 rounded border border-slate-200/90 font-medium">
+                            {spec}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+
                 </div>
               </div>
-
-            </div>
-          ))}
+            ))}
           </div>
         </AnimatedContent>
 

@@ -69,29 +69,29 @@ export const Header: React.FC = () => {
         </div>
       </div>
 
-      {/* Main Header */}
+      {/* Main Header - Sleek & Compact on Mobile and Desktop */}
       <header 
         className={`sticky top-0 z-50 transition-all duration-300 ${
           isScrolled 
-            ? 'bg-sanatel-black/95 backdrop-blur-md border-b border-sanatel-border shadow-2xl py-3' 
-            : 'bg-sanatel-black/80 backdrop-blur-sm border-b border-white/5 py-4'
+            ? 'bg-sanatel-black/95 backdrop-blur-md border-b border-sanatel-border shadow-2xl py-1.5 sm:py-2 lg:py-2.5' 
+            : 'bg-sanatel-black/85 backdrop-blur-sm border-b border-white/5 py-2 sm:py-2.5 lg:py-3'
         }`}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 flex items-center justify-between">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-3 group">
-            <div className="relative w-11 h-11 flex-shrink-0">
+          <Link to="/" className="flex items-center space-x-2.5 sm:space-x-3 group">
+            <div className="relative w-8 h-8 sm:w-9 sm:h-9 lg:w-10 lg:h-10 flex-shrink-0">
               <img 
                 src="/assets/logo-sanatel-4k.png" 
                 alt="Sanatel Comunicação Visual" 
-                className="w-full h-full object-contain filter drop-shadow-[0_0_12px_rgba(227,38,46,0.35)] group-hover:scale-105 transition-transform duration-300"
+                className="w-full h-full object-contain filter drop-shadow-[0_0_10px_rgba(227,38,46,0.35)] group-hover:scale-105 transition-transform duration-300"
               />
             </div>
             <div className="flex flex-col">
-              <span className="font-extrabold text-xl tracking-tight leading-none text-white group-hover:text-sanatel-red transition-colors">
+              <span className="font-extrabold text-base sm:text-lg lg:text-xl tracking-tight leading-none text-white group-hover:text-sanatel-red transition-colors">
                 SANATEL
               </span>
-              <span className="tech-label text-[10px] text-sanatel-gray-400 tracking-[0.2em] font-medium leading-tight">
+              <span className="tech-label text-[8px] sm:text-[9px] lg:text-[10px] text-sanatel-gray-400 tracking-[0.18em] sm:tracking-[0.2em] font-medium leading-tight">
                 COMUNICAÇÃO VISUAL
               </span>
             </div>
@@ -211,11 +211,11 @@ export const Header: React.FC = () => {
           {/* Mobile Menu Trigger */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="lg:hidden p-2.5 rounded-lg bg-sanatel-surface border border-sanatel-border text-sanatel-gray-300 hover:text-white min-h-[44px] min-w-[44px] flex items-center justify-center transition-colors"
+            className="lg:hidden p-2 rounded-lg bg-sanatel-surface border border-sanatel-border text-sanatel-gray-300 hover:text-white min-h-[38px] min-w-[38px] flex items-center justify-center transition-colors"
             aria-expanded={mobileMenuOpen}
             aria-label={mobileMenuOpen ? "Fechar menu principal" : "Abrir menu principal"}
           >
-            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
         </div>
 

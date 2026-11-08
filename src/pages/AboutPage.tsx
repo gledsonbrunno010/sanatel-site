@@ -109,21 +109,33 @@ export const AboutPage: React.FC = () => {
 
           <AnimatedContent distance={60} direction="vertical" duration={0.8} ease="power3.out" trigger="scroll" stagger={0.08} delay={0.1}>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {WORK_PROCESS_STEPS.map((step) => (
+              {WORK_PROCESS_STEPS.map((step, idx) => (
                 <div
                   key={step.step}
-                  className="p-6 rounded-2xl bg-sanatel-surface border border-sanatel-border relative group hover:border-sanatel-red/50 transition-all flex flex-col justify-between shadow-lg"
+                  className="relative p-[2.5px] rounded-2xl overflow-hidden group shadow-xl shadow-black/40 flex flex-col justify-between"
                 >
-                  <div className="space-y-4">
-                    <div className="font-mono text-3xl font-extrabold text-sanatel-red">
-                      {step.step}
+                  {/* Luminous Animated Edge Beam */}
+                  <div
+                    className="absolute inset-[-150%] bg-[conic-gradient(from_0deg,transparent_0deg,transparent_200deg,rgba(227,38,46,0.45)_240deg,#E3262E_310deg,#FFFFFF_345deg,#E3262E_355deg,transparent_360deg)] opacity-85 group-hover:opacity-100 transition-opacity duration-500 animate-[spin_6s_linear_infinite] drop-shadow-[0_0_12px_rgba(227,38,46,0.45)]"
+                    style={{
+                      animationDuration: `${5.5 + idx * 0.7}s`,
+                      willChange: 'transform'
+                    }}
+                  />
+                  <div className="absolute inset-0 rounded-2xl border border-sanatel-border/80 pointer-events-none" />
+
+                  <div className="relative z-10 w-full h-full p-6 sm:p-7 rounded-[13.5px] bg-[#161619] group-hover:bg-[#19191d] transition-colors duration-300 flex flex-col justify-between">
+                    <div className="space-y-4">
+                      <div className="font-mono text-3xl font-extrabold text-sanatel-red">
+                        {step.step}
+                      </div>
+                      <h3 className="text-lg font-bold text-white group-hover:text-sanatel-red transition-colors">
+                        {step.title}
+                      </h3>
+                      <p className="text-xs text-sanatel-gray-400 leading-relaxed">
+                        {step.desc}
+                      </p>
                     </div>
-                    <h3 className="text-lg font-bold text-white group-hover:text-sanatel-red transition-colors">
-                      {step.title}
-                    </h3>
-                    <p className="text-xs text-sanatel-gray-400 leading-relaxed">
-                      {step.desc}
-                    </p>
                   </div>
                 </div>
               ))}

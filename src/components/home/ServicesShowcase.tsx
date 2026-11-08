@@ -1,8 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowUpRight, CheckCircle2, Sparkles, ArrowRight, Target } from 'lucide-react';
+import { ArrowUpRight, CheckCircle2, Sparkles, ArrowRight, Target, ZoomIn } from 'lucide-react';
 import { SERVICES } from '../../data/companyData';
 import AnimatedContent from '../ui/AnimatedContent';
+import { ImageModal, ImageModalData } from '../common/ImageModal';
 
 const FACADE_SLIDES = [
   {
@@ -41,6 +42,7 @@ export const ServicesShowcase: React.FC = () => {
   const acmService = SERVICES[0]; // Fachadas em ACM
   const otherServices = SERVICES.slice(1); // The other 5 services
   const [activeSlide, setActiveSlide] = useState(0);
+  const [selectedImage, setSelectedImage] = useState<ImageModalData | null>(null);
   const sectionRef = useRef<HTMLElement>(null);
   const [isVisible, setIsVisible] = useState(false);
 
@@ -107,11 +109,33 @@ export const ServicesShowcase: React.FC = () => {
           ease="power3.out"
           threshold={0.15}
         >
-          <div className="mb-14 rounded-3xl overflow-hidden bg-gradient-to-br from-sanatel-dark to-sanatel-surface border border-sanatel-red/40 shadow-2xl relative group">
-            <div className="grid grid-cols-1 lg:grid-cols-12 items-stretch">
+          <div className="mb-14 relative p-[2.5px] rounded-3xl overflow-hidden group shadow-2xl shadow-black/50">
+            {/* Luminous Animated Edge Beam */}
+            <div
+              className="absolute inset-[-150%] bg-[conic-gradient(from_0deg,transparent_0deg,transparent_200deg,rgba(227,38,46,0.45)_240deg,#E3262E_310deg,#FFFFFF_345deg,#E3262E_355deg,transparent_360deg)] opacity-85 group-hover:opacity-100 transition-opacity duration-500 animate-[spin_8s_linear_infinite] drop-shadow-[0_0_15px_rgba(227,38,46,0.45)]"
+              style={{ willChange: 'transform' }}
+            />
+            {/* Ambient Static Border Layer */}
+            <div className="absolute inset-0 rounded-3xl border border-sanatel-border/80 pointer-events-none" />
 
-              {/* Visual Side (7 cols) - Full Height & 2s Infinite Loop Slideshow */}
-              <div className="lg:col-span-7 relative min-h-[280px] sm:min-h-[380px] lg:min-h-full overflow-hidden bg-sanatel-black">
+            {/* Inner Content Card Body */}
+            <div className="relative z-10 w-full h-full rounded-[21.5px] overflow-hidden bg-gradient-to-br from-sanatel-dark to-sanatel-surface">
+              <div className="grid grid-cols-1 lg:grid-cols-12 items-stretch">
+
+              {/* Visual Side (7 cols) - Full Height & 2s Infinite Loop Slideshow - Click to Open Pop-up */}
+              <div 
+                className="lg:col-span-7 relative min-h-[280px] sm:min-h-[380px] lg:min-h-full overflow-hidden bg-sanatel-black cursor-pointer group/slide"
+                onClick={() => setSelectedImage({
+                  src: FACADE_SLIDES[activeSlide].image,
+                  alt: FACADE_SLIDES[activeSlide].title,
+                  title: FACADE_SLIDES[activeSlide].title,
+                  subtitle: FACADE_SLIDES[activeSlide].spec,
+                  badge: 'FACHADAS EM ACM // DF',
+                  description: acmService.description,
+                  serviceSlug: acmService.slug
+                })}
+                title="Clique para ampliar a imagem da fachada"
+              >
                 {FACADE_SLIDES.map((slide, idx) => (
                   <div
                     key={idx}
@@ -123,10 +147,18 @@ export const ServicesShowcase: React.FC = () => {
                       alt={slide.title}
                       loading="lazy"
                       decoding="async"
-                      className="w-full h-full object-cover object-center"
+                      className="w-full h-full object-cover object-center group-hover/slide:scale-105 transition-transform duration-700"
                     />
                   </div>
                 ))}
+
+                {/* Subtle Hover Zoom Overlay */}
+                <div className="absolute inset-0 z-15 bg-black/30 opacity-0 group-hover/slide:opacity-100 transition-opacity flex items-center justify-center pointer-events-none">
+                  <span className="inline-flex items-center space-x-2 px-3.5 py-2 rounded-full bg-sanatel-black/90 text-white text-xs font-semibold backdrop-blur-md border border-white/20 shadow-xl">
+                    <ZoomIn className="w-4 h-4 text-sanatel-red" />
+                    <span>Clique para ampliar foto</span>
+                  </span>
+                </div>
 
                 {/* Flagship Badge */}
                 <div className="absolute top-4 left-4 sm:top-5 sm:left-5 z-20 flex items-center space-x-2">
@@ -209,6 +241,7 @@ export const ServicesShowcase: React.FC = () => {
               </div>
 
             </div>
+            </div>
           </div>
         </AnimatedContent>
 
@@ -225,50 +258,83 @@ export const ServicesShowcase: React.FC = () => {
           {otherServices.map((service, index) => (
             <div
               key={service.id}
-              className={`rounded-2xl overflow-hidden bg-sanatel-surface border border-sanatel-border hover:border-sanatel-red/50 transition-all duration-300 flex flex-col justify-between group shadow-lg ${index === 0 ? 'lg:col-span-2 md:col-span-2' : ''
-                }`}
+              className={`relative p-[2.5px] rounded-2xl overflow-hidden group shadow-xl shadow-black/40 flex flex-col justify-between ${
+                index === 0 ? 'lg:col-span-2 md:col-span-2' : ''
+              }`}
             >
-              {/* Card Image */}
-              <div className="relative aspect-[16/9] overflow-hidden bg-sanatel-black">
-                <img
-                  src={service.image}
-                  alt={service.title}
-                  loading="lazy"
-                  decoding="async"
-                  className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
-                />
-                <div className="absolute top-4 left-4 z-10">
-                  <span className="tech-label text-[10px] font-bold bg-sanatel-black/95 text-sanatel-red border border-sanatel-border px-2.5 py-1 rounded-md shadow-md">
-                    {service.badge}
-                  </span>
-                </div>
-              </div>
+              {/* Luminous Animated Edge Beam */}
+              <div
+                className="absolute inset-[-150%] bg-[conic-gradient(from_0deg,transparent_0deg,transparent_200deg,rgba(227,38,46,0.45)_240deg,#E3262E_310deg,#FFFFFF_345deg,#E3262E_355deg,transparent_360deg)] opacity-80 group-hover:opacity-100 transition-opacity duration-500 animate-[spin_7s_linear_infinite] drop-shadow-[0_0_12px_rgba(227,38,46,0.4)]"
+                style={{
+                  animationDuration: `${6.5 + index * 0.8}s`,
+                  willChange: 'transform'
+                }}
+              />
+              <div className="absolute inset-0 rounded-2xl border border-sanatel-border/80 pointer-events-none" />
 
-              {/* Card Body */}
-              <div className="p-6 flex-1 flex flex-col justify-between space-y-4">
-                <div className="space-y-2.5">
-                  <span className="tech-label text-[11px] text-sanatel-gray-400 font-medium">
-                    {service.subtitle}
-                  </span>
-                  <h4 className="text-xl font-bold text-white group-hover:text-sanatel-red transition-colors">
-                    {service.title}
-                  </h4>
-                  <p className="text-xs text-sanatel-gray-300 leading-relaxed">
-                    {service.commercialHook}
-                  </p>
+              <div className="relative z-10 w-full h-full rounded-[13.5px] overflow-hidden bg-sanatel-surface flex flex-col justify-between">
+                {/* Card Image - Click to Open Pop-up */}
+                <div 
+                  className="relative aspect-[16/9] overflow-hidden bg-sanatel-black cursor-pointer group/img"
+                  onClick={() => setSelectedImage({
+                    src: service.image,
+                    alt: service.title,
+                    title: service.title,
+                    subtitle: service.subtitle,
+                    badge: service.badge,
+                    description: service.commercialHook || service.description,
+                    serviceSlug: service.slug
+                  })}
+                  title={`Clique para ampliar foto de ${service.title}`}
+                >
+                  <img
+                    src={service.image}
+                    alt={service.title}
+                    loading="lazy"
+                    decoding="async"
+                    className="w-full h-full object-cover object-center group-hover/img:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute top-4 left-4 z-10">
+                    <span className="tech-label text-[10px] font-bold bg-sanatel-black/95 text-sanatel-red border border-sanatel-border px-2.5 py-1 rounded-md shadow-md">
+                      {service.badge}
+                    </span>
+                  </div>
+
+                  {/* Subtle Hover Zoom Overlay */}
+                  <div className="absolute inset-0 bg-black/40 opacity-0 group-hover/img:opacity-100 transition-opacity flex items-center justify-center z-10">
+                    <span className="inline-flex items-center space-x-1.5 px-3 py-1.5 rounded-full bg-sanatel-black/85 text-white text-xs font-semibold backdrop-blur-md border border-white/20 shadow-lg">
+                      <ZoomIn className="w-3.5 h-3.5 text-sanatel-red" />
+                      <span>Clique para ampliar</span>
+                    </span>
+                  </div>
                 </div>
 
-                <div className="pt-4 border-t border-sanatel-border/60 flex items-center justify-between">
-                  <Link
-                    to={`/${service.slug}`}
-                    className="inline-flex items-center text-xs font-bold tech-label tracking-wider text-sanatel-gray-200 group-hover:text-white transition-colors"
-                  >
-                    <span>Conhecer Detalhes & Orçamento</span>
-                    <ArrowUpRight className="w-3.5 h-3.5 ml-1 text-sanatel-red group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-                  </Link>
-                  <span className="text-[11px] text-sanatel-gray-400 font-mono">
-                    DIRETO DA FÁBRICA
-                  </span>
+                {/* Card Body */}
+                <div className="p-6 flex-1 flex flex-col justify-between space-y-4">
+                  <div className="space-y-2.5">
+                    <span className="tech-label text-[11px] text-sanatel-gray-400 font-medium">
+                      {service.subtitle}
+                    </span>
+                    <h4 className="text-xl font-bold text-white group-hover:text-sanatel-red transition-colors">
+                      {service.title}
+                    </h4>
+                    <p className="text-xs text-sanatel-gray-300 leading-relaxed">
+                      {service.commercialHook}
+                    </p>
+                  </div>
+
+                  <div className="pt-4 border-t border-sanatel-border/60 flex items-center justify-between">
+                    <Link
+                      to={`/${service.slug}`}
+                      className="inline-flex items-center text-xs font-bold tech-label tracking-wider text-sanatel-gray-200 group-hover:text-white transition-colors"
+                    >
+                      <span>Conhecer Detalhes & Orçamento</span>
+                      <ArrowUpRight className="w-3.5 h-3.5 ml-1 text-sanatel-red group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                    </Link>
+                    <span className="text-[11px] text-sanatel-gray-400 font-mono">
+                      DIRETO DA FÁBRICA
+                    </span>
+                  </div>
                 </div>
               </div>
 
@@ -277,6 +343,12 @@ export const ServicesShowcase: React.FC = () => {
         </AnimatedContent>
 
       </div>
+
+      {/* Services Image Preview Pop-up Modal */}
+      <ImageModal
+        data={selectedImage}
+        onClose={() => setSelectedImage(null)}
+      />
     </section>
   );
 };
