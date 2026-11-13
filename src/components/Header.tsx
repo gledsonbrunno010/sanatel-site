@@ -82,8 +82,12 @@ export const Header: React.FC = () => {
           <Link to="/" className="flex items-center space-x-2.5 sm:space-x-3 group">
             <div className="relative w-8 h-8 sm:w-9 sm:h-9 lg:w-10 lg:h-10 flex-shrink-0">
               <img 
-                src="/assets/logo-sanatel-4k.png" 
+                src="/assets/logo-sanatel.webp" 
                 alt="Sanatel Comunicação Visual" 
+                width={40}
+                height={40}
+                loading="eager"
+                decoding="async"
                 className="w-full h-full object-contain filter drop-shadow-[0_0_10px_rgba(227,38,46,0.35)] group-hover:scale-105 transition-transform duration-300"
               />
             </div>

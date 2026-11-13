@@ -23,8 +23,12 @@ export const Footer: React.FC = () => {
             <Link to="/" className="flex items-center space-x-3 group inline-block">
               <div className="relative w-12 h-12 flex-shrink-0">
                 <img 
-                  src="/assets/logo-sanatel-4k.png" 
+                  src="/assets/logo-sanatel.webp" 
                   alt="Sanatel Comunicação Visual" 
+                  width={48}
+                  height={48}
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-contain filter drop-shadow-[0_0_15px_rgba(227,38,46,0.3)] group-hover:scale-105 transition-transform"
                 />
               </div>

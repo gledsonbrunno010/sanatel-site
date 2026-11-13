@@ -22,8 +22,9 @@ const ROUTE_TITLES: Record<string, string> = {
   '/contato': 'Contato & Orçamento | Sanatel Comunicação Visual Brasília DF',
 };
 
-// Code-splitting via React.lazy for instant initial load and smooth navigation
-const HomePage = lazy(() => import('./pages/HomePage').then(m => ({ default: m.HomePage })));
+import { HomePage } from './pages/HomePage';
+
+// Code-splitting via React.lazy for subpages (instant initial landing on HomePage)
 const AboutPage = lazy(() => import('./pages/AboutPage').then(m => ({ default: m.AboutPage })));
 const ServicesPage = lazy(() => import('./pages/ServicesPage').then(m => ({ default: m.ServicesPage })));
 const ServiceDetailPage = lazy(() => import('./pages/ServiceDetailPage').then(m => ({ default: m.ServiceDetailPage })));

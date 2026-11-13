@@ -31,22 +31,34 @@ export const HomePage: React.FC = () => {
       <ServicesShowcase />
 
       {/* 05. Apresentação Institucional e Liderança Técnica */}
-      <InstitutionalIntro />
+      <div className="content-visibility-auto">
+        <InstitutionalIntro />
+      </div>
 
       {/* 06. Signature ACM Construction Interaction */}
-      <AcmConstructionInteraction />
+      <div className="content-visibility-auto">
+        <AcmConstructionInteraction />
+      </div>
 
       {/* 07. Selected Real Projects in Brasília */}
-      <SelectedProjects />
+      <div className="content-visibility-auto">
+        <SelectedProjects />
+      </div>
 
       {/* 08. Why Choose Sanatel Technical Differentiators */}
-      <WhyChooseSanatel />
+      <div className="content-visibility-auto">
+        <WhyChooseSanatel />
+      </div>
 
       {/* 09. Manufacturing & Production Machinery Capabilities */}
-      <ProductionCapabilities />
+      <div className="content-visibility-auto">
+        <ProductionCapabilities />
+      </div>
 
       {/* 10. High-Conversion Dual CTA */}
-      <ConversionCta />
+      <div className="content-visibility-auto">
+        <ConversionCta />
+      </div>
     </div>
   );
 };

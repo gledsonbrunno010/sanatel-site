@@ -45,8 +45,12 @@ export const AboutPage: React.FC = () => {
               <div className="lg:col-span-6 relative">
                 <div className="rounded-3xl overflow-hidden border-2 border-sanatel-red/30 shadow-2xl aspect-[4/3] bg-slate-950 group">
                   <img
-                    src="/assets/direcao-tecnica-sanatel.jpg"
+                    src="/assets/direcao-tecnica-sanatel.webp"
                     alt="Direção Técnica e Engenharia Visual no DF - Michael Thiago Silva Cardoso na Sanatel Comunicação Visual"
+                    width={640}
+                    height={480}
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-cover object-[center_35%] group-hover:scale-105 transition-transform duration-500"
                   />
                 </div>
@@ -179,8 +183,10 @@ export const AboutPage: React.FC = () => {
               <div className="grid grid-cols-2 gap-4">
                 <div className="rounded-2xl overflow-hidden border border-slate-300 shadow-xl aspect-square bg-slate-900 group">
                   <img
-                    src="/assets/maquina-usinagem-industrial.png"
+                    src="/assets/maquina-usinagem-industrial.webp"
                     alt="Centro de Usinagem Sanatel"
+                    width={500}
+                    height={500}
                     loading="lazy"
                     decoding="async"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
@@ -188,8 +194,10 @@ export const AboutPage: React.FC = () => {
                 </div>
                 <div className="rounded-2xl overflow-hidden border border-slate-300 shadow-xl aspect-square bg-slate-900 group">
                   <img
-                    src="/assets/maquina-impressao-digital.jpg"
+                    src="/assets/maquina-impressao-digital.webp"
                     alt="Impressão Digital Solvente Sanatel"
+                    width={500}
+                    height={500}
                     loading="lazy"
                     decoding="async"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"

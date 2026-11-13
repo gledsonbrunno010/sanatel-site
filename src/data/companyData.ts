@@ -64,7 +64,7 @@ export const SERVICES: ServiceItem[] = [
     heroTagline: "Sua marca merece ser vista. Sua fachada precisa provar sua autoridade.",
     commercialHook: "Uma fachada apagada ou ondulada afasta clientes antes mesmo de entrarem. O ACM Sanatel transforma sua sede em um ponto de referência comercial inconfundível.",
     badge: "Flagship Sanatel",
-    image: "/assets/fachada-pronto-sam.jpg",
+    image: "/assets/fachada-pronto-sam.webp",
     description: "Revestimentos arquitetônicos em ACM 4mm com fabricação própria de alta precisão. Acabamento plano sem ondulações, fixação oculta sem parafusos aparentes e resistência extrema ao sol do Planalto Central.",
     longDescription: [
       "A fachada é o ativo físico mais valioso da sua empresa: ela define o valor percebido do seu produto ou serviço em menos de 3 segundos. Quando um cliente passa pelo seu endereço em Brasília, o acabamento da sua fachada comunica imediatamente se sua empresa é líder de mercado ou amadora.",
@@ -112,7 +112,7 @@ export const SERVICES: ServiceItem[] = [
     heroTagline: "Destaque o nome da sua empresa com relevo tridimensional e acabamento nobre.",
     commercialHook: "Sua logomarca não pode ser apenas um adesivo plano na parede. Letras caixa em alto-relevo transmitem status, credibilidade executiva e sofisticação inquestionável.",
     badge: "Acabamento Nobre",
-    image: "/assets/letra-caixa-outlet.png",
+    image: "/assets/letra-caixa-outlet.webp",
     description: "Letras monobloco em alto-relevo usinadas em aço inox polido ou escovado, acrílico virgem, chapa galvanizada e PVC expandido com corte computadorizado e módulos de LED IP67.",
     longDescription: [
       "A letra caixa é o ápice da elegância na comunicação visual. Ela confere peso, tridimensionalidade e textura à sua marca, seja na fachada principal ou na recepção do seu escritório em Brasília.",
@@ -200,7 +200,7 @@ export const SERVICES: ServiceItem[] = [
     heroTagline: "A nobreza do acrílico virgem para valorizar ambientes executivos.",
     commercialHook: "O acrílico é o material definitivo quando o objetivo é sofisticação, pureza óptica e detalhes cirúrgicos para órgãos solenes, embaixadas e empresas de prestígio.",
     badge: "Precisão & Luxo",
-    image: "/assets/placa-acrilico-cavalcante-gas.jpg",
+    image: "/assets/placa-acrilico-cavalcante-gas.webp",
     description: "Displays corporativos, painéis de recepção de alto luxo, placas de homenagem, púlpitos e peças tridimensionais sob medida em acrílico 100% virgem de alta densidade.",
     longDescription: [
       "O acrílico virgem (polimetilmetacrilato) possui propriedades ópticas incomparáveis: 92% de transmitância luminosa — superior à maioria dos vidros comerciais —, pesando metade e com resistência ao impacto 10 vezes maior.",
@@ -244,7 +244,7 @@ export const SERVICES: ServiceItem[] = [
     heroTagline: "Transforme sua frota e seu ponto de venda em máquinas de vendas em movimento.",
     commercialHook: "Cada veículo da sua empresa sem adesivação profissional é uma oportunidade diária de publicidade desperdiçada no trânsito de Brasília.",
     badge: "Alta Resolução",
-    image: "/assets/envelopamento-frotas-comerciais.jpg",
+    image: "/assets/envelopamento-frotas-comerciais.webp",
     description: "Envelopamento técnico e padronização visual de frotas comerciais e veículos utilitários para empresas como Velocity Logística, além de vitrines decorativas em adesivo jateado, lonas tensionadas e impressão digital 1440 DPI com tintas solventes originais.",
     longDescription: [
       "No trânsito movimentado do Eixão, da EPTG e das avenidas comerciais de Taguatinga e Ceilândia, um veículo adesivado com excelência é visto por dezenas de milhares de potenciais clientes todos os dias com custo por mil impressões infinitamente menor que qualquer mídia tradicional.",
@@ -287,7 +287,7 @@ export const SERVICES: ServiceItem[] = [
     heroTagline: "Direcione fluxos, organize ambientes e atenda às normas legais com precisão.",
     commercialHook: "Sinalização não é apenas obrigação de bombeiros: é a garantia de que visitantes, clientes e moradores se localizem com rapidez e segurança no seu prédio.",
     badge: "Norma ABNT & CBMDF",
-    image: "/assets/totem-monumental-supergasbras.jpg",
+    image: "/assets/totem-monumental-supergasbras.webp",
     description: "Totens monumentais rodoviários, pórticos industriais e sistemas integrados de sinalização interna e externa para condomínios, prédios empresariais e indústrias no DF.",
     longDescription: [
       "A sinalização arquitetônica (Wayfinding) define a sensação de organização de qualquer empreendimento imobiliário ou comercial. Ambientes com placas confusas ou inexistentes geram estresse, atrasos e sensação de abandono.",
@@ -332,7 +332,7 @@ export const PROJECTS: ProjectItem[] = [
     serviceSlug: "fachadas-em-acm-brasilia",
     location: "Samambaia / Brasília - DF",
     year: "2024",
-    image: "/assets/fachada-pronto-sam.jpg",
+    image: "/assets/fachada-pronto-sam.webp",
     specs: ["ACM 4mm Azul Royal e Branco", "Brises Metálicos de Conforto Térmico", "Cruz Médica com LED Frontlight", "Subestrutura Aço Galvanizado"],
     commercialImpact: "Transformou a clínica médica no ponto de referência visual da região, aumentando o fluxo de pacientes particulares e a credibilidade institucional.",
     description: "Revestimento em ACM de grande porte em edifício de 3 pavimentos com integração de brises de ventilação e logotipo tridimensional retroiluminado com alta visibilidade na avenida principal."
@@ -358,7 +358,7 @@ export const PROJECTS: ProjectItem[] = [
     serviceSlug: "fachadas-em-acm-brasilia",
     location: "Brasília - DF",
     year: "2024",
-    image: "/assets/fachada-outlet-bras.png",
+    image: "/assets/fachada-outlet-bras.webp",
     specs: ["ACM Preto e Cinza Chumbo", "Letras Caixa Amarelas Iluminadas", "Painéis Actos de Fachada", "Totens Integrados"],
     commercialImpact: "Gerou impacto monumental para a megaloja de confecções, atraindo clientes do trânsito de Brasília e alavancando as vendas no ponto comercial.",
     description: "Fachada de escala monumental combinando painéis de ACM de alta espessura com letras tridimensionais gigantes de iluminação perimétrica."
@@ -371,7 +371,7 @@ export const PROJECTS: ProjectItem[] = [
     serviceSlug: "letras-caixa-brasilia",
     location: "Brasília - DF",
     year: "2024",
-    image: "/assets/letra-caixa-outlet.png",
+    image: "/assets/letra-caixa-outlet.webp",
     specs: ["Acrílico Translúcido Amarelo", "LED Backlight 6500K", "Corte de Precisão 0.05mm", "Fiação 100% Embutida"],
     commercialImpact: "Criou um ponto focal de sofisticação no checkout, enriquecendo a experiência de compra e fotos de clientes nas redes sociais.",
     description: "Letreiros tridimensionais usinados com difusão uniforme de luz sobre alvenaria cinza claro, compondo o visual da recepção da loja."
@@ -384,7 +384,7 @@ export const PROJECTS: ProjectItem[] = [
     serviceSlug: "letreiros-e-luminosos",
     location: "Brasília - DF",
     year: "2024",
-    image: "/assets/fachada-mercado-pai-e-filho.jpg",
+    image: "/assets/fachada-mercado-pai-e-filho.webp",
     specs: ["Revestimento em Painéis de ACM Azul Marinho de Alta Planicidade", "Letras Caixa 3D com LED Frontal 6500K Branco Puro", "Logotipo Estilizado com LED Âmbar de Alto Contraste", "Iluminação Noturna Projetada para Varejo Alimentar"],
     commercialImpact: "Multiplicou a visibilidade noturna no comércio local, tornando o ponto de venda um marco inconfundível na avenida e aumentando o fluxo de clientes no período noturno.",
     description: "Engenharia visual completa para o varejo: revestimento estrutural em ACM azul marinho com fixação 100% oculta, letreiro tridimensional com iluminação LED de alto brilho e logotipo luminoso em tom âmbar sobre o vão de entrada, garantindo atração visual e sofisticação."
@@ -397,7 +397,7 @@ export const PROJECTS: ProjectItem[] = [
     serviceSlug: "placas-de-sinalizacao-brasilia",
     location: "Brasília - DF",
     year: "2024",
-    image: "/assets/totem-monumental-supergasbras.jpg",
+    image: "/assets/totem-monumental-supergasbras.webp",
     specs: ["Estrutura Autoportante em Aço Galvanizado Pesado", "Revestimento em ACM Vermelho Kynar 500 Resistente ao Sol do DF", "Lettering Vertical Preto e Símbolo em Relevo Usinado", "Instalação com Equipe Própria Certificada NR-35"],
     commercialImpact: "Demarcação territorial e visibilidade a centenas de metros em via expressa, consolidando a presença física e imponência industrial da marca no Distrito Federal.",
     description: "Totem monumental vertical de 7 metros de altura para a unidade de distribuição da Supergasbras no DF: projeto estrutural dimensionado para suportar ventos intensos, chapas de ACM vermelho com pintura especial anti-desbotamento, letras em alto relevo e fundação reforçada em concreto."
@@ -410,7 +410,7 @@ export const PROJECTS: ProjectItem[] = [
     serviceSlug: "letras-caixa-brasilia",
     location: "Brasília - DF",
     year: "2024",
-    image: "/assets/letra-caixa-jesus.jpg",
+    image: "/assets/letra-caixa-jesus.webp",
     specs: ["Aço Galvanizado com Pintura Dourada Nobre", "Relevo de 80mm", "LEDs Efeito Halo Traseiro", "Montagem com Afastadores de Precisão"],
     commercialImpact: "Proporcionou atmosfera solene e imponente no altar, com destaque visual reverente para os membros da comunidade.",
     description: "Tipografia clássica com relevo monumental tridimensional e acabamento dourado com iluminação indireta."
@@ -423,7 +423,7 @@ export const PROJECTS: ProjectItem[] = [
     serviceSlug: "pecas-em-acrilico-brasilia",
     location: "Brasília - DF",
     year: "2024",
-    image: "/assets/placa-acrilico-cavalcante-gas.jpg",
+    image: "/assets/placa-acrilico-cavalcante-gas.webp",
     specs: ["Acrílico Cristal 5mm com Fundo Jateado Fosco", "Logotipo em Acrílico Colorido em Relevo 3D", "Tipografia Black Piano Lapidada a Laser", "Fixação por 4 Prolongadores em Inox Escovado"],
     commercialImpact: "Cria impacto visual imediato logo na entrada da sede corporativa, transmitindo solidez e requinte a parceiros, clientes e fornecedores no DF.",
     description: "Composição nobre em acrílico virgem lapidado a laser: base cristal 5mm com acabamento acetinado jateado no verso, chama e anel em acrílico vermelho e amarelo em camadas volumétricas 3D e lettering institucional em acrílico Black Piano de alto brilho com botões prolongadores em aço inox."
@@ -436,7 +436,7 @@ export const PROJECTS: ProjectItem[] = [
     serviceSlug: "pecas-em-acrilico-brasilia",
     location: "Brasília - DF",
     year: "2024",
-    image: "/assets/quadro-frota-supergasbras.jpg",
+    image: "/assets/quadro-frota-supergasbras.webp",
     specs: ["Acrílico Branco Leitoso Virgem 5mm", "Impressão UV Direta 1440 DPI Resistente a Solventes", "Superfície Whiteboard para Marcador e Limpeza Diária", "Prolongadores em Aço Inox"],
     commercialImpact: "Centralizou o controle diário de tacógrafo, CIV, CIPP e volumetria das frotas da distribuidora, garantindo conformidade operacional e máxima transparência logística.",
     description: "Painel de gestão à vista corporativo sob medida para controle diário de frotas pesadas, com laminação protetora para escrita/apagamento contínuo, divisões milimétricas precisas e montagem nobre com afastadores em inox."
@@ -449,7 +449,7 @@ export const PROJECTS: ProjectItem[] = [
     serviceSlug: "fachadas-em-acm-brasilia",
     location: "Brasília - DF",
     year: "2024",
-    image: "/assets/sede-sanatel.jpg",
+    image: "/assets/sede-sanatel.webp",
     specs: ["ACM Laranja e Preto 4mm", "Letras Caixa Brancas em PVC", "Logotipo Oficial Sanatel em Relevo", "Expositores de Endereçamento Predial"],
     commercialImpact: "Nossa própria unidade fabril comprova a precisão das dobras, a qualidade dos materiais e a durabilidade sob o sol do DF.",
     description: "A unidade fabril da Sanatel sintetiza nossa capacidade técnica com maquinário próprio, modulações de ACM impecáveis e logotipo iluminado."
@@ -514,7 +514,7 @@ export const PROJECTS: ProjectItem[] = [
     serviceSlug: "placas-de-sinalizacao-brasilia",
     location: "Brasília - DF",
     year: "2024",
-    image: "/assets/totem-monumental-eurobike.jpg",
+    image: "/assets/totem-monumental-eurobike.webp",
     specs: ["Estrutura Monobloco Branca Autoportante", "Módulos Volumétricos Laranja Corporativo", "Letras Monobloco 3D de Alta Resistência", "Base de Ancoragem para Resistência a Ventos"],
     commercialImpact: "Identificação monumental de impacto paisagístico para a concessionária de luxo em Brasília, transmitindo autoridade e dinamismo de longe.",
     description: "Totem volumétrico tridimensional instalado na área externa ajardinada da Eurobike Brasília: composição escultórica com blocos modulares em laranja vibrante e lettering branco 'Eurobike', integrando o paisagismo à engenharia visual automotiva de luxo."
@@ -527,7 +527,7 @@ export const PROJECTS: ProjectItem[] = [
     serviceSlug: "adesivos-e-comunicacao-visual",
     location: "Brasília - DF",
     year: "2024",
-    image: "/assets/envelopamento-frotas-comerciais.jpg",
+    image: "/assets/envelopamento-frotas-comerciais.webp",
     specs: [
       "Vinil Automotivo Cast Polimérico de Alta Conformabilidade",
       "Impressão Digital Solvente 1440 DPI com Cores Corporativas Vivas",

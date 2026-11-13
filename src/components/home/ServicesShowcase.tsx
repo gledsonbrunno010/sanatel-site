@@ -12,12 +12,12 @@ const FACADE_SLIDES = [
     spec: 'Mega Fachada de Esquina em ACM 4mm'
   },
   {
-    image: '/assets/fachada-pronto-sam.jpg',
+    image: '/assets/fachada-pronto-sam.webp',
     title: 'Clínica Pronto Sam (Samambaia / Brasília)',
     spec: 'Fachada Monumental em ACM 4mm'
   },
   {
-    image: '/assets/fachada-outlet-bras.png',
+    image: '/assets/fachada-outlet-bras.webp',
     title: 'Megaloja Outlet do Brás (DF)',
     spec: 'Painéis em ACM & Letras Caixa Gigantes'
   },
@@ -32,7 +32,7 @@ const FACADE_SLIDES = [
     spec: 'Fachada Corporativa em ACM Angular'
   },
   {
-    image: '/assets/sede-sanatel.jpg',
+    image: '/assets/sede-sanatel.webp',
     title: 'Unidade Fabril Sanatel (Brasília - DF)',
     spec: 'Modulação de ACM com Dobras de Precisão'
   }
@@ -145,6 +145,8 @@ export const ServicesShowcase: React.FC = () => {
                     <img
                       src={slide.image}
                       alt={slide.title}
+                      width={800}
+                      height={500}
                       loading="lazy"
                       decoding="async"
                       className="w-full h-full object-cover object-center group-hover/slide:scale-105 transition-transform duration-700"
@@ -290,6 +292,8 @@ export const ServicesShowcase: React.FC = () => {
                   <img
                     src={service.image}
                     alt={service.title}
+                    width={600}
+                    height={450}
                     loading="lazy"
                     decoding="async"
                     className="w-full h-full object-cover object-center group-hover/img:scale-105 transition-transform duration-500"

@@ -7,8 +7,12 @@ export const PageLoader: React.FC = () => {
         {/* Soft pulsing ring */}
         <div className="absolute inset-0 rounded-full border-2 border-sanatel-red/40 border-t-sanatel-red animate-spin" />
         <img
-          src="/assets/logo-sanatel-4k.png"
+          src="/assets/logo-sanatel.webp"
           alt="Carregando..."
+          width={28}
+          height={28}
+          loading="eager"
+          decoding="async"
           className="w-7 h-7 object-contain opacity-80"
         />
       </div>

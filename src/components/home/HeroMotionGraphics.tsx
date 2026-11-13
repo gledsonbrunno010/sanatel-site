@@ -75,13 +75,18 @@ export const HeroMotionGraphics: React.FC = () => {
           className="absolute left-3 right-3 top-0 h-[2px] sm:h-[2.5px] bg-gradient-to-r from-transparent via-white to-transparent shadow-[0_0_12px_#FFF] pointer-events-none z-30 will-change-transform"
         />
 
-        {/* The Official Company Logo in 4K (Transparent PNG, No Black Box) */}
+        {/* The Official Company Logo in WebP (High-Performance LCP Element) */}
         <img
-          src="/assets/logo-sanatel-4k.png"
+          src="/assets/logo-sanatel.webp"
+          srcSet="/assets/logo-sanatel.webp 512w, /assets/logo-sanatel-4k.webp 2048w"
+          sizes="(max-width: 640px) 192px, (max-width: 1024px) 320px, 380px"
           alt="Sanatel Comunicação Visual"
+          width={380}
+          height={380}
           loading="eager"
           decoding="async"
-          className="w-full h-full object-contain filter drop-shadow-[0_0_20px_rgba(227,38,46,0.7)] relative z-10 transition-transform duration-300"
+          fetchPriority="high"
+          className="w-full h-full object-contain filter drop-shadow-[0_0_12px_rgba(227,38,46,0.6)] sm:drop-shadow-[0_0_20px_rgba(227,38,46,0.7)] relative z-10 transition-transform duration-300"
         />
       </motion.div>
 

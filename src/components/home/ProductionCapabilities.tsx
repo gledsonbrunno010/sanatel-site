@@ -46,8 +46,10 @@ export const ProductionCapabilities: React.FC = () => {
                 <div className="space-y-4">
                   <div className="relative aspect-[16/10] rounded-2xl overflow-hidden bg-sanatel-black border border-sanatel-border">
                     <img
-                      src="/assets/maquina-usinagem-industrial.png"
+                      src="/assets/maquina-usinagem-industrial.webp"
                       alt="Centro de Usinagem e Corte de Alta Precisão Sanatel - Corte e Fresagem de ACM e Acrílico"
+                      width={640}
+                      height={400}
                       loading="lazy"
                       decoding="async"
                       className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
@@ -99,8 +101,10 @@ export const ProductionCapabilities: React.FC = () => {
                 <div className="space-y-4">
                   <div className="relative aspect-[16/10] rounded-2xl overflow-hidden bg-sanatel-black border border-sanatel-border">
                     <img
-                      src="/assets/maquina-impressao-digital.jpg"
+                      src="/assets/maquina-impressao-digital.webp"
                       alt="Máquina de Impressão Digital Solvente de Alta Resolução Sanatel"
+                      width={640}
+                      height={400}
                       loading="lazy"
                       decoding="async"
                       className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"

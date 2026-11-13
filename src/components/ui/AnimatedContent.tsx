@@ -107,6 +107,7 @@ export const AnimatedContent: React.FC<AnimatedContentProps> = ({
       const mask = wipe !== 'none' ? WIPES[wipe] : null;
 
       if (reduce) {
+        gsap.set(targets, { opacity: 1, x: 0, y: 0, clearProps: 'all' });
         callbacksRef.current.onComplete?.();
         return;
       }

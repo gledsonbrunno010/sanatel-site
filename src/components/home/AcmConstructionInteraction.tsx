@@ -179,7 +179,7 @@ export const AcmConstructionInteraction: React.FC = () => {
                 <div className="w-full h-full bg-transparent flex flex-col items-center justify-center p-6 relative">
                   <div className="relative z-10 flex flex-col items-center space-y-3">
                     <div className="w-20 h-20 rounded-full border-2 border-sanatel-red p-2 bg-black/80 shadow-[0_0_30px_rgba(227,38,46,0.8)]">
-                      <img src="/assets/logo-sanatel-4k.png" alt="Sanatel 3D Logo" className="w-full h-full object-contain filter drop-shadow-[0_0_12px_#E3262E]" />
+                      <img src="/assets/logo-sanatel.webp" alt="Sanatel 3D Logo" width={64} height={64} loading="lazy" decoding="async" className="w-full h-full object-contain filter drop-shadow-[0_0_12px_#E3262E]" />
                     </div>
                     <div className="text-2xl sm:text-3xl font-extrabold tracking-widest text-white text-center filter drop-shadow-[0_0_15px_rgba(255,255,255,0.7)]">
                       SANATEL
@@ -198,8 +198,12 @@ export const AcmConstructionInteraction: React.FC = () => {
                 }`}
               >
                 <img
-                  src="/assets/fachada-pronto-sam.jpg"
+                  src="/assets/fachada-pronto-sam.webp"
                   alt="Fachada Monumental em ACM Realizada pela Sanatel em Brasília"
+                  width={800}
+                  height={500}
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover object-center"
                 />
                 <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between text-xs tech-label text-white bg-sanatel-black/85 backdrop-blur-md p-3 rounded-lg border border-sanatel-border">

@@ -27,8 +27,12 @@ export const InstitutionalIntro: React.FC = () => {
                 {/* Main Machine / Director Image */}
                 <div className="relative rounded-2xl overflow-hidden border-2 border-sanatel-red/30 shadow-2xl bg-sanatel-surface aspect-[4/3] group">
                   <img
-                    src="/assets/direcao-tecnica-sanatel.jpg"
+                    src="/assets/direcao-tecnica-sanatel.webp"
                     alt="Direção Técnica no Canteiro de Obras no DF - Michael Thiago Silva Cardoso da Sanatel"
+                    width={640}
+                    height={480}
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-cover object-[center_35%] group-hover:scale-105 transition-transform duration-500"
                   />
                 </div>

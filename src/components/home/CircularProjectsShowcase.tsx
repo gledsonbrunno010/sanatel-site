@@ -6,7 +6,7 @@ import { CircularCarousel, CircularCarouselItem } from '../ui/CircularCarousel';
 import AnimatedContent from '../ui/AnimatedContent';
 
 export const CircularProjectsShowcase: React.FC = () => {
-  const [isMobile, setIsMobile] = React.useState(false);
+  const [isMobile, setIsMobile] = React.useState(() => typeof window !== 'undefined' ? window.innerWidth < 640 : false);
   const [inView, setInView] = React.useState(false);
   const containerRef = React.useRef<HTMLDivElement>(null);
 
